@@ -1,0 +1,1 @@
+export const MAIN_GET_CONFIG_DATA = '@@MAIN/GET_CONFIG_DATA'

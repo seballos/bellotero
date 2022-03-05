@@ -19,7 +19,8 @@ module.exports = {
     }*/
   },
   // devtool: 'source-map', // more info:https://webpack.js.org/guides/production/#source-mapping and https://webpack.js.org/configuration/devtool/
-  entry: path.resolve(process.cwd(), 'src/index'),
+  entry:[ 'react-app-polyfill/stable', path.resolve(process.cwd(), 'src/index')
+  ],
   target: 'web',
   mode: 'production',
   output: {
