@@ -1,0 +1,138 @@
+@require '../../styles/theme/colors'
+@require '../../styles/media'
+@require '../../styles/utils'
+
+.nav
+  align-items center
+  background-color light-yellow
+  color dark-blue54
+  display flex
+  justify-content space-between
+  height 4rem
+  padding 0 1rem
+
+  &__menu
+    align-items center
+    cursor pointer
+    display flex
+    flex-direction column
+    height 100%
+    justify-content center
+    width 30px
+    +widerthan(768px)
+      display: none;
+
+    &__link
+      &,
+      &:visited
+        color: white
+        text-decoration: none
+        +widerthan(mobile)
+          color dark-blue54
+      
+      &:hover
+        border-bottom 1px solid white
+        +widerthan(768px)
+          border-color: dark-blue54
+
+    &__button
+      &,
+      &::before,
+      &::after
+        background-color dark-blue
+        border-radius: .125px
+        display block
+        height: .25rem
+        position: absolute
+        transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1)
+        width: 30px
+
+      &::before
+        content ''
+        margin-top -8px
+      
+      &::after
+        content ''
+        margin-top 8px
+
+      
+    &__toggle
+      display none
+
+      &:checked + .nav__menu .nav__menu__button::before
+        margin-top 0
+        transform rotate(405deg)
+
+      &:checked + .nav__menu .nav__menu__button {
+        background transparent
+      }
+
+      &:checked + .nav__menu .nav__menu__button::after
+        margin-top 0
+        transform rotate(-405deg)
+
+      &:not(&:checked) ~ .nav__list
+        visuallyhidden()
+        +widerthan(mobile)
+          resetvisuallyhidden()
+
+      & ~ .nav__list li
+        border 0
+        height 0
+        margin 0
+        padding 0
+        +widerthan(mobile)
+          padding 0 .5rem
+
+      &:checked ~ .nav__list li
+        border: 1px solid #333;
+        height: 1rem;
+        padding: 0.5rem;
+
+      +widerthan(mobile)
+        & ~ .nav__list li
+        &:checked ~ .nav__list li
+          border none
+          height initial
+
+  &__list
+    align-items center
+    display flex
+    flex-direction column
+    justify-content center
+    left 0
+    list-style none
+    margin 4rem 0 0 0
+    padding 0
+    position absolute
+    top 0
+    width 100%
+    +widerthan(mobile)
+      flex-direction row
+      margin 0
+      position static
+      width auto
+
+    & > li
+      background-color: #222
+      display: flex
+      justify-content: center
+      margin: 0
+      padding: 0.5em 0
+      width: 100%
+      +widerthan(mobile)
+        background-color transparent
+        display: block
+        line-height 4rem
+        width: auto
+
+      &:not(:last-of-type)
+        border-bottom: 1px solid #444
+        +widerthan(mobile)
+          border none
+
+
+
+        
+    
+    
