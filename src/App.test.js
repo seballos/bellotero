@@ -1,12 +1,11 @@
-import { shallow } from 'enzyme'
+import { screen } from '@testing-library/react'
+import axios from 'axios'
 import App from './App'
+import { renderWithReduxProvider } from './utils/testUtils'
 
-describe('<App />', () => {
-  let wrapper
-  beforeEach(() => {
-    wrapper = shallow(<App />)
-  })
-  it('Should render the App', () => {
-    expect(wrapper.exists()).toBe(true)
-  })
+test('should render properly', () => {
+  const MOCK_RESPONSE = { menu: { items: [] } }
+  axios.get.mockResolvedValue({ data: MOCK_RESPONSE })
+  renderWithReduxProvider(<App />)
+  expect(screen.getByRole('heading')).toBeTruthy()
 })

@@ -1,6 +1,7 @@
-# React App boilerplate
+# Bellotero.io
 
-Sample boilerplate with react 17, webpack 5, babel, hmr, jest, eslint, prettier
+Bellotero.io is the digital solution that gives you fast, accurate, automated accounts payable and smart, business-transforming insights.
+Built with react 17, webpack 5, babel, hmr, jest, eslint, prettier
 
 ### How to use
 
