@@ -1,3 +1,7 @@
+import { connect } from 'react-redux'
 import Configurator from './Configurator'
 
-export default Configurator
+const mapStateToProps = () => ({})
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Configurator)

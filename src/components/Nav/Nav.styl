@@ -4,8 +4,7 @@
 
 .nav
   align-items center
-  background-color light-yellow
-  color dark-blue54
+  background-color navbar-bg
   display flex
   justify-content space-between
   height 4rem
@@ -25,21 +24,21 @@
     &__link
       &,
       &:visited
-        color: white
+        color primary
+        display block
+        padding 0.5rem 0
         text-decoration: none
-        +widerthan(mobile)
-          color dark-blue54
+        +widerthan(768px)
+          padding 0 .5rem
       
       &:hover
-        border-bottom 1px solid white
-        +widerthan(768px)
-          border-color: dark-blue54
+        border-top 2px solid primary
 
     &__button
       &,
       &::before,
       &::after
-        background-color dark-blue
+        background-color primary
         border-radius: .125px
         display block
         height: .25rem
@@ -78,16 +77,11 @@
 
       & ~ .nav__list li
         border 0
-        height 0
         margin 0
         padding 0
-        +widerthan(mobile)
-          padding 0 .5rem
 
       &:checked ~ .nav__list li
-        border: 1px solid #333;
-        height: 1rem;
-        padding: 0.5rem;
+        border 1px solid black10
 
       +widerthan(mobile)
         & ~ .nav__list li
@@ -114,7 +108,7 @@
       width auto
 
     & > li
-      background-color: #222
+      background-color: black5
       display: flex
       justify-content: center
       margin: 0
@@ -123,11 +117,10 @@
       +widerthan(mobile)
         background-color transparent
         display: block
-        line-height 4rem
         width: auto
 
       &:not(:last-of-type)
-        border-bottom: 1px solid #444
+        border-bottom: 1px solid black10
         +widerthan(mobile)
           border none
 

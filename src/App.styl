@@ -1,7 +1,25 @@
-@import './styles/*'
+@require './styles/theme/colors'
+@require './styles/theme/typography'
+  @require './styles/media'
   
 body
-  background-color #002b36
-  color white
-  font-family 'Comfortaa', 'Arial', 'Sans serif'
+  background-color background
   margin 0
+
+.container 
+  margin 0 auto
+  max-width 700px
+  padding: 0 1rem
+
+  +widerthan(mobile)
+    margin 7.5rem auto 0
+    max-width 1100px
+    padding: 0 2rem
+
+.heading
+  background: primary
+  color: white
+  display: inline-block
+  line-height 1.11
+  letter-spacing 0.77px
+  padding .25rem

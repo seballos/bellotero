@@ -1,2 +1,6 @@
-const Configurator = () => <div>Configurator</div>
+import { useEffect } from 'react'
+
+const Configurator = () => {
+  useEffect(() => {}, [])
+}
 export default Configurator

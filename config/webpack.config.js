@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const path = require('path')
 
 const port = process.env.PORT || 3000
@@ -40,7 +41,8 @@ module.exports = {
         collapseWhitespace: true
       },
       inject: true
-    })
+    }),
+    new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
@@ -80,6 +82,10 @@ module.exports = {
       {
         test: /sprite\.svg$/,
         loader: 'raw-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/i,

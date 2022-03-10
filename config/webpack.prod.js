@@ -110,6 +110,10 @@ module.exports = {
         loader: 'raw-loader'
       },
       {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
         test: /\.(jpe?g|png|gif|ico)$/i,
         use: [
           {

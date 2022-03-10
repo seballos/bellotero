@@ -15,7 +15,7 @@ const Nav = ({ items }) => {
     ({ text, route }) => (
       <li key={text}>
         <Link
-          className="nav__menu__link"
+          className="nav__menu__link roboto-medium--16"
           onClick={handleMenuItemClick}
           to={route}
         >

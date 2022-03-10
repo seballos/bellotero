@@ -1,0 +1,13 @@
+weights = {
+  medium: 500,
+  black: 900,
+  bold: 700,
+  regular: 400
+}
+
+for size in 14 16 24 32 36 72
+  for type in 'medium' 'black' 'bold' 'regular' 
+    .roboto-{type}--{size}
+      font-family Roboto, sans-serif
+      font-size size px
+      font-weight: weights[type]
