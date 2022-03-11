@@ -6,5 +6,5 @@ test('getConfigData is gotten', async () => {
   const MOCK_RESPONSE = { menu: {} }
   axios.get.mockResolvedValue({ data: MOCK_RESPONSE })
   await store.dispatch(actions.getConfigData())
-  expect(store.getState()).toEqual({ main: { mainConfig: MOCK_RESPONSE } })
+  expect(store.getState().main).toEqual({ mainConfig: MOCK_RESPONSE })
 })
