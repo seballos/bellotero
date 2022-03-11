@@ -70,7 +70,9 @@ const Configurator = ({ getConfiguratorData, config }) => {
         <div className="configurator">
           <div className="configurator__info">
             <h1 className="heading roboto-black--36">{calculator.title}</h1>
-            <p className="roboto-regular--16">{calculator.description}</p>
+            <p className="roboto-regular--16 configurator__dek">
+              {calculator.description}
+            </p>
           </div>
           <div className="configurator__estimated-section">
             {configuratorSchema.map(renderEstimateCostItem)}
