@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import { useCallback, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import cx from 'classnames'
 import './Nav.styl'
-
+const EMPTY_ROUTE = '#'
 const Nav = ({ items }) => {
   const [checked, setChecked] = useState(false)
   const handleMenuItemClick = useCallback(() => {
@@ -14,13 +15,18 @@ const Nav = ({ items }) => {
   const renderItem = useCallback(
     ({ text, route }) => (
       <li key={text}>
-        <Link
-          className="nav__menu__link roboto-medium--16"
+        <NavLink
+          className={({ isActive }) =>
+            cx('nav__menu__link roboto-medium--16', {
+              'nav__menu__link--active': isActive & (route !== EMPTY_ROUTE),
+              'nav__menu__link--disabled': route === EMPTY_ROUTE,
+            })
+          }
           onClick={handleMenuItemClick}
           to={route}
         >
           {text}
-        </Link>
+        </NavLink>
       </li>
     ),
     [handleMenuItemClick]
@@ -28,7 +34,7 @@ const Nav = ({ items }) => {
 
   return (
     <nav className="nav">
-      <section>belloterio.io</section>
+      <img alt="logo" className="nav__logo" />
       <input
         id="menu-toggle"
         className="nav__menu__toggle"

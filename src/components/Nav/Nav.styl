@@ -24,15 +24,24 @@
     &__link
       &,
       &:visited
+        border-top .25rem solid transparent
+        border-bottom .25rem solid transparent
         color primary
         display block
-        padding 0.5rem 0
+        line-height 3.5rem
         text-decoration: none
         +widerthan(768px)
-          padding 0 .5rem
-      
+          margin 0 1.5rem
+
+      &.nav__menu__link--active,
+      &:active,
       &:hover
-        border-top 2px solid primary
+        border-top-color primary
+      
+      &.nav__menu__link--disabled
+        color greyish
+        border-color transparent
+        pointer-events none
 
     &__button
       &,
@@ -101,6 +110,7 @@
     position absolute
     top 0
     width 100%
+    z-index 1
     +widerthan(mobile)
       flex-direction row
       margin 0
@@ -114,6 +124,8 @@
       margin: 0
       padding: 0.5em 0
       width: 100%
+
+
       +widerthan(mobile)
         background-color transparent
         display: block
