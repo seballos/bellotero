@@ -3,6 +3,8 @@ import { useCallback, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import cx from 'classnames'
 import './Nav.styl'
+import Logo from '../../assets/images/logo.svg'
+
 const EMPTY_ROUTE = '#'
 const Nav = ({ items }) => {
   const [checked, setChecked] = useState(false)
@@ -34,7 +36,9 @@ const Nav = ({ items }) => {
 
   return (
     <nav className="nav">
-      <img alt="logo" className="nav__logo" />
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
       <input
         id="menu-toggle"
         className="nav__menu__toggle"
