@@ -1,0 +1,50 @@
+@require '../../styles/theme/colors'
+.range
+  --webkitProgressPercent 0%
+  -webkit-appearance none
+  margin 1.375rem 0
+  width 100%
+  position relative
+
+  &:focus
+    outline none
+  
+  &::-webkit-slider-runnable-track
+    background linear-gradient(90deg, primary var(--webkitProgressPercent), titan-white var(--webkitProgressPercent))
+    height .25rem
+    width 100%
+
+  &::-webkit-slider-thumb
+    -webkit-appearance none
+    background white
+    border-radius 50%
+    border 5px solid primary;
+    cursor pointer
+    height 1rem
+    margin-top -5px
+    width: 1rem
+   
+  &::-moz-range-track
+    background titan-white
+    cursor: pointer
+    width 100%
+
+  &::-moz-range-thumb
+    -webkit-appearance none
+    background white
+    border-radius 50%
+    border 5px solid primary;
+    cursor pointer
+    height 0.5rem
+    margin-top -5px
+    width: 0.5rem
+
+  &::-webkit-progress-value
+    background primary
+
+  &::-ms-fill-lower
+    background primary
+
+  &::-moz-range-progress
+    background-color primary
+

@@ -1,0 +1,27 @@
+@require '../../styles/theme/colors'
+@require '../../styles/media'
+
+.input-number
+  border: 1px solid pale-lilac
+  border-radius 4px
+  max-width 4.1875rem
+  outline none
+  text-align: right
+
+  &--prefixed
+    max-width 11.875rem
+
+  &__wrapper
+    position relative
+
+    & > span
+      color grey22
+      display block
+      pointer-events none
+      position absolute
+      text-align center
+      top 35%
+      transform translate(0, -50%)
+      width 2rem
+      +widerthan(mobile)
+        top 45%

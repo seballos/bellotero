@@ -10,10 +10,10 @@ const Testimonial = ({ getTestimonialData, config }) => {
   if (Object.keys(config).length) {
     const { slider } = config
     return (
-      <section className="container">
+      <main className="container">
         <h1 className="heading roboto-black--36">{slider.title}</h1>
         <Reviews config={slider.reviews} />
-      </section>
+      </main>
     )
   }
   return null
