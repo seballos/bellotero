@@ -27,7 +27,9 @@ const Configurator = ({ getConfiguratorData, config }) => {
     fullTimeEmployees: null,
   })
   const formatter = useRef(
-    new Intl.NumberFormat('us-US', { maximumSignificantDigits: 2 })
+    new Intl.NumberFormat('en-IN', {
+      maximumFractionDigits: 2,
+    })
   )
   const { estimateCostFoodSavings, estimateAnualSavings } = useMemo(() => {
     const { ingredientSpending, fullTimeEmployees } = estimateValues
