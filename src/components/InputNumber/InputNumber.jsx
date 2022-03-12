@@ -6,6 +6,7 @@ const InputNumber = ({ prefix, ...props }) => {
     return (
       <div className="input-number__wrapper">
         <input
+          aria-label="prefix-selected-value"
           className="roboto-medium--36 input-number input-number--prefixed"
           {...props}
         />
@@ -13,7 +14,13 @@ const InputNumber = ({ prefix, ...props }) => {
       </div>
     )
   }
-  return <input className="roboto-medium--36 input-number" {...props} />
+  return (
+    <input
+      aria-label="selected-value"
+      className="roboto-medium--36 input-number"
+      {...props}
+    />
+  )
 }
 
 InputNumber.propTypes = {

@@ -46,7 +46,7 @@ const Nav = ({ items }) => {
         onChange={handleChange}
         checked={checked}
       />
-      <label className="nav__menu" htmlFor="menu-toggle">
+      <label aria-label="nav-menu" className="nav__menu" htmlFor="menu-toggle">
         <div className="nav__menu__button"></div>
       </label>
       <ul className="nav__list">{items.map(renderItem)}</ul>

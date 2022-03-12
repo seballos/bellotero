@@ -42,15 +42,14 @@ const Range = ({ ...props }) => {
   }, [isChanging, changeInputProgressPercentStyle])
 
   useEffect(() => {
-    if (!inputRef?.current) return
     changeInputProgressPercentStyle()
   }, [inputRef, changeInputProgressPercentStyle])
   return <input ref={inputRef} className="range" type="range" {...props} />
 }
 
 Range.propTypes = {
-  min: PropTypes.number,
-  max: PropTypes.number,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
 }
 
 export default Range

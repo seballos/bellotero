@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
 import Configurator from '../Configurator'
+import Error from '../Error'
 import Testimonial from '../Testimonial'
 import './Home.styl'
 
@@ -31,12 +32,13 @@ const Home = ({ getConfigData, mainConfig }) => {
             )
           )}
           <Route path="/" element={<Navigate to="page-1" />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </>
     )
   }
 
-  return <h1>Home in Construction</h1>
+  return <h1>Loading...</h1>
 }
 
 Home.propTypes = {

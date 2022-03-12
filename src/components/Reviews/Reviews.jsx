@@ -46,7 +46,7 @@ const Reviews = ({ config }) => {
         </ul>
       </section>
       <div className="reviews__controls">
-        <span className="reviews__counter">
+        <span aria-label="current-slide" className="reviews__counter">
           {`${currentSlide + 1}/${config.length}`}
         </span>
         <Button onClick={() => handleTransition(currentSlide - 1)}>

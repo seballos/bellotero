@@ -23,3 +23,18 @@ export const renderWithReduxProvider = (
   }
   return render(ui, { wrapper: Wrapper, ...renderOptions })
 }
+
+export const renderWithReduxProviderAndRouter = (
+  ui,
+  { store, ...renderOptions }
+) => {
+  function Wrapper({ children }) {
+    window.history.pushState({}, 'Test page', '/')
+    return (
+      <Provider store={store}>
+        <MemoryRouter>{children}</MemoryRouter>
+      </Provider>
+    )
+  }
+  return render(ui, { wrapper: Wrapper, ...renderOptions })
+}

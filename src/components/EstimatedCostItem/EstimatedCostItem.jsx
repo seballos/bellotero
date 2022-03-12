@@ -52,4 +52,8 @@ EstimatedCostItem.propTypes = {
   prefix: PropTypes.string,
 }
 
+EstimatedCostItem.defaultProp = {
+  prefix: '',
+}
+
 export default EstimatedCostItem

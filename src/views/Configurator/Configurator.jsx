@@ -78,7 +78,10 @@ const Configurator = ({ getConfiguratorData, config }) => {
             {configuratorSchema.map(renderEstimateCostItem)}
             <section className="configurator__estimated-values">
               <section className="configurator__estimated-value">
-                <span className="roboto-medium--72 configurator__result">
+                <span
+                  aria-label="estimated-cost-food-savings"
+                  className="roboto-medium--72 configurator__result"
+                >
                   {estimateCostFoodSavings}
                 </span>
                 <span className="roboto-bold--14">
@@ -86,7 +89,10 @@ const Configurator = ({ getConfiguratorData, config }) => {
                 </span>
               </section>
               <section className="configurator__estimated-value">
-                <span className="roboto-medium--72 configurator__result">
+                <span
+                  aria-label="estimated-anual-savings"
+                  className="roboto-medium--72 configurator__result"
+                >
                   {estimateAnualSavings}
                 </span>
                 <span className="roboto-bold--14">
