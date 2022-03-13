@@ -7,8 +7,8 @@ import { overwriteStore } from '../../../utils/mockReducer'
 jest.mock('../../../redux/main/actions')
 jest.mock('../../../redux/testimonial/actions')
 
-const setup = (configBase) => {
-  const store = overwriteStore({ main: { mainConfig: configBase } })
+const setup = (configBase, error) => {
+  const store = overwriteStore({ main: { mainConfig: configBase, error } })
   const wrapper = renderWithReduxProviderAndRouter(<Home />, { store })
   return { wrapper }
 }
@@ -36,4 +36,10 @@ test('render <Home /> properly with config', () => {
   }
   setup(config)
   expect(screen.getByRole('navigation')).toBeVisible()
+})
+
+test('render <Home /> properly with error', () => {
+  const expected = 'Something went wrong :( Please try again'
+  setup({}, true)
+  expect(screen.getByRole('heading')).toHaveTextContent(expected)
 })

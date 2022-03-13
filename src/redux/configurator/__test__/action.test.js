@@ -8,3 +8,10 @@ test('getConfiguratorData is gotten', async () => {
   await store.dispatch(actions.getConfiguratorData())
   expect(store.getState().configurator).toEqual({ config: MOCK_RESPONSE })
 })
+
+test('getConfiguratorData has error', async () => {
+  const errorTrace = new Error('went wrong')
+  axios.get.mockRejectedValue(errorTrace)
+  await store.dispatch(actions.getConfiguratorData())
+  expect(store.getState().main).toMatchObject({ error: true, errorTrace })
+})

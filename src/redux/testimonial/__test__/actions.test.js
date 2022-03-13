@@ -8,3 +8,10 @@ test('getTestimonialData is gotten', async () => {
   await store.dispatch(actions.getTestimonialData())
   expect(store.getState().testimonial).toEqual({ config: MOCK_RESPONSE })
 })
+
+test('getTestimonialData has error', async () => {
+  const errorTrace = new Error('went wrong')
+  axios.get.mockRejectedValue(errorTrace)
+  await store.dispatch(actions.getTestimonialData())
+  expect(store.getState().main).toMatchObject({ error: true, errorTrace })
+})

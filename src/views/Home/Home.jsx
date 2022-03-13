@@ -1,28 +1,32 @@
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Nav from '../../components/Nav'
 import Configurator from '../Configurator'
-import Error from '../Error'
 import Testimonial from '../Testimonial'
+import Error from '../Error'
 import './Home.styl'
 
 const EMPTY_ROUTE = '#'
+const ERROR_ROUTE = '/error'
 const CMP_MAP = {
   Testimonial: <Testimonial />,
   Configurator: <Configurator />,
 }
 
-const Home = ({ getConfigData, mainConfig }) => {
+const Home = ({ getConfigData, mainConfig, error }) => {
   useEffect(() => {
     getConfigData()
   }, [getConfigData])
-
-  if (Object.keys(mainConfig).length !== 0) {
-    const { items } = mainConfig.menu
+  const { pathname } = useLocation()
+  if (Object.keys(mainConfig).length !== 0 || error) {
+    const { items = [] } = mainConfig.menu || {}
+    if (error && pathname !== ERROR_ROUTE) {
+      return <Navigate to={ERROR_ROUTE} />
+    }
     return (
       <>
-        <Nav items={items}></Nav>
+        <Nav items={items} />
         <Routes>
           {items.map(({ route, text }) =>
             route !== EMPTY_ROUTE ? (
@@ -37,16 +41,17 @@ const Home = ({ getConfigData, mainConfig }) => {
       </>
     )
   }
-
   return <h1>Loading...</h1>
 }
 
 Home.propTypes = {
   getConfigData: PropTypes.func.isRequired,
   mainConfig: PropTypes.object,
+  error: PropTypes.bool,
 }
 
 Home.defaultProps = {
+  error: false,
   mainConfig: {},
 }
 
